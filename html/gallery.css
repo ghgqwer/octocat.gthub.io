@@ -1,0 +1,430 @@
+/* Галлерея */
+
+* {
+   box-sizing: border-box;
+}
+.image-container {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(3, 1fr);
+   width: 55%;
+   grid-gap: 0.5rem;
+   margin: 0 auto;
+   margin-top: 55px;
+}
+.image-container .image {
+   position: relative;
+   padding-bottom: 100%;
+}
+.image-container .image img {
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+   left: 0;
+   position: absolute;
+   top: 0;
+}
+
+@media (max-width:1200px) {
+	.image-container {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		width: 100%;
+		grid-gap: 0.5rem;
+		margin: 0 auto;
+		margin-top: 55px;
+	}
+}
+
+#portfolio {
+	max-width: 1500px;
+	height: 800px;
+	background: #ffffff;
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(4, minmax(200px, 1fr));
+	grid-template-rows: 1fr 1fr;
+	grid-gap: 2px;
+	margin: 0 auto;
+	margin-top: 65px;
+	margin-bottom: 85px;
+}
+
+
+/* Всплывающее окно */
+
+
+.project {
+	position: relative;
+	background: #ffffff;
+	overflow: hidden;
+}
+.project img {
+	position: absolute;
+	opacity: 0.9;
+}
+.project p {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	padding: 1em 0;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	z-index: 3;
+}
+.project .grid__title {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	white-space: nowrap;
+	bottom: 0;
+	font-weight: 100;
+	font-size: 0.8em;
+	z-index: 3;
+	text-transform: uppercase;
+	color: #474545;
+	letter-spacing: 2px;
+}
+.project:hover .grid__overlay {
+	transform: translateY(0%);
+}
+.grid__overlay {
+	background: #3379b7e2;
+	height: 100%;
+	grid-column: 1 / -1;
+	grid-row: 1 / -1;
+	position: relative;
+	display: grid;
+	justify-items: center;
+	align-items: center;
+	transform: translateY(101%);
+	transition: all 0.3s ease-in-out;
+}
+.grid__overlay button {
+	background: none;
+	outline: none;
+	font-weight: 100;
+	letter-spacing: 2px;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	margin-top: 110px;
+	text-transform: uppercase;
+	padding: 10px;
+}
+.grid__overlay button:hover {
+	transition: all 0.3s ease-in-out;
+	background: #ffffff;
+	color: #000000;
+	transform: scale(1.05);
+}
+
+
+.viewbutton__mobile {
+	display: none;
+	background: none;
+	outline: none;
+	font-weight: 100;
+	letter-spacing: 2px;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	text-transform: uppercase;
+	padding: 10px;
+}
+.viewbutton__mobile:hover {
+	transition: all 0.3s ease-in-out;
+	background: #ffffff;
+	color: #000000;
+	transform: scale(1.05);
+}
+
+.overlay {
+	position: fixed;
+	background: rgba(71, 69, 69, 0.7);
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: none;
+	z-index: 3;
+}
+.overlay.open {
+	display: grid;
+	align-items: center;
+	justify-items: center;
+}
+.overlay__inner {
+	background: #ffffff;
+	width: 700px;
+	padding: 20px;
+	position: relative;
+	opacity: 1;
+}
+.close {
+	position: absolute;
+	top: 3px;
+	right: 10px;
+	background: none;
+	outline: 0;
+	color: #474545;
+	border: 0;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+.close:hover {
+	color: #D1A39E;
+}
+.project__image {
+	margin-left: -50%;
+	margin-top: 80px;
+}
+
+@media(max-width:1500px){
+	#portfolio {
+		max-width: 750px;
+		height: 1600px;
+		/* min-height: 100vh; */
+		background: #ffffff;
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(200px, 1fr));
+		grid-template-rows: 1fr 1fr 1fr 1fr;
+		grid-gap: 2px;
+		margin: 0 auto;
+		margin-top: 65px;
+		margin-bottom: 85px;
+	}
+}
+@media(max-width:850px){
+	.viewbutton__mobile {
+		display: block;
+		background: none;
+		outline: none;
+		font-weight: 100;
+		letter-spacing: 2px;
+		border: 1px solid #ffffff;
+		color: #ffffff;
+		text-transform: uppercase;
+		margin-bottom: 170px;
+		padding: 10px;
+	}
+	.viewbutton {
+		display: none;
+		background: none;
+		outline: none;
+		font-weight: 100;
+		letter-spacing: 2px;
+		border: 1px solid #ffffff;
+		color: #ffffff;
+		margin-top: 110px;
+		text-transform: uppercase;
+		padding: 10px;
+	}
+}
+@media(max-width:770px){
+	#portfolio {
+		max-width: 375px;
+		height: 3000px;
+		background: #ffffff;
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(1, minmax(200px, 1fr));
+		grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+		grid-gap: 2px;
+		margin: 0 auto;
+		margin-top: 65px;
+		margin-bottom: 85px;
+	}
+	}
+
+	.modal {
+		position: fixed; /* фиксированное положение */
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,0.3); /* фон */
+		z-index: 1050;
+		opacity: 0; /* по умолчанию модальное окно прозрачно */
+		-webkit-transition: opacity 200ms ease-in; 
+		-moz-transition: opacity 200ms ease-in;
+		transition: opacity 200ms ease-in; /* анимация перехода */
+		pointer-events: none; /* элемент невидим для событий мыши */
+		margin: 0;
+		padding: 0;
+	}
+	/* ширина модального окна и его отступы от экрана */
+.modal-dialog {
+	position: relative;
+	width: auto;
+	margin: 100px;
+}
+@media (min-width: 576px) {
+	.modal-dialog {
+	max-width: 500px;
+	margin: 30px auto; /* отображение окна по центру */
+	margin-top: 265px;
+}
+	/* При отображении модального окно */
+	.modal:target {
+		opacity: 1; /* делаем окно видимым */
+		 pointer-events: auto; /* элемент видим для событий мыши */
+		overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
+	}
+	/* ширина модального окна и его отступы от экрана */
+	.modal-dialog {
+		position: relative;
+		width: auto;
+		margin: 10px;
+	}
+	@media (min-width: 576px) {
+	.modal-dialog {
+		min-width: 745px;
+		height: 270px;
+		  margin: 165px auto; /* отображение окна по центру */
+	}
+	}
+	/* Стили для блока с контентом окна */ 
+	.modal-content {
+		position: relative;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		background-color: #fff;
+		-webkit-background-clip: padding-box;
+		background-clip: padding-box;
+		border: 1px solid rgba(0,0,0,.2);
+		border-radius: .3rem;
+		outline: 0;
+	}
+	@media (min-width: 768px) {
+	.modal-content {
+		  /* -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5); */
+		  /* box-shadow: 0 5px 15px rgba(0,0,0,.5); */
+	}
+	}
+	/* Стили заголовка окна */
+	.modal-header {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		-ms-flex-align: center;
+		align-items: center;
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+		padding: 15px;
+		border-bottom: 1px solid #eceeef;
+	}
+	.modal-title {
+		margin-top: 0;
+		margin-bottom: 0;
+		line-height: 1.5;
+		font-size: 1.25rem;
+		font-weight: 500;
+	}
+	/* Стили кнопки "х" ("Закрыть")  */
+	.close {
+		float: right;
+		font-family: sans-serif;
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 1;
+		color: #000;
+		text-shadow: 0 1px 0 #fff;
+		opacity: .5;
+		text-decoration: none;
+	}
+	/* Стили для закрывающей кнопки в фокусе или наведении */
+	.close:focus, .close:hover {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+		opacity: .75;
+	}
+	/* Стили блока основного содержимого окна */
+	.modal-body {
+		position: relative;
+		-webkit-box-flex: 1;
+		-webkit-flex: 1 1 auto;
+		-ms-flex: 1 1 auto;
+		flex: 1 1 auto;
+		padding: 25px;
+		overflow: auto;
+	}
+	
+	.modal-body li{
+		margin-left: 20px;
+		margin-top: 10px;
+	}
+	
+	.modal-body  {
+		font-size: 18px;
+	}
+}
+
+.border-button {
+	text-decoration: none;
+	display: inline-block;
+	padding: 20px 30px;
+	margin: 20px 20px;
+	position: relative;
+	color: rgb(40, 81, 146);
+	border: 1px solid rgb(40, 81, 146);
+	background: none;
+	font-weight: 300;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-left: 205px;
+ }
+ .border-button:before, .border-button:after {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	opacity: 0;
+	box-sizing: border-box;
+ }
+ .border-button:before {
+	bottom: 0;
+	left: 0;
+	border-left: 1px solid rgb(40, 81, 146);
+	border-top: 1px solid rgb(40, 81, 146);
+	transition: 0s ease opacity .8s, .2s ease width .4s, .2s ease height .6s;
+ }
+ .border-button:after {
+	top: 0;
+	right: 0;
+	border-right: 1px solid rgb(40, 81, 146);
+	border-bottom: 1px solid rgb(40, 81, 146);
+	transition: 0s ease opacity .4s, .2s ease width, .2s ease height .2s;
+ }
+ .border-button:hover:before, 
+ .border-button:hover:after {
+	height: 100%;
+	width: 100%;
+	opacity: 1;
+ }
+ .border-button:hover:before {
+	transition: 0s ease opacity 0s, .2s ease height, .2s ease width .2s;
+ }
+ .border-button:hover:after {
+	transition: 0s ease opacity .4s, .2s ease height .4s, .2s ease width .6s;
+ }
+ .border-button:hover {
+	background: rgba(255, 255, 255, .2);
+ }
+
+@media (max-width:800px){
+}
